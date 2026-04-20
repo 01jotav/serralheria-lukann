@@ -1,8 +1,8 @@
 import { ShieldCheck, Microscope, Ruler } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { SITE } from "@/lib/site";
+import { WA_MESSAGES, whatsappWithText } from "@/lib/site";
 
-const WHATSAPP = SITE.whatsapp.url;
+const WHATSAPP = whatsappWithText(WA_MESSAGES.authority);
 
 export default function Authority() {
   return (

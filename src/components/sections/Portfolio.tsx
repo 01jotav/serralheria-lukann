@@ -5,6 +5,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { WA_MESSAGES, whatsappWithText } from "@/lib/site";
+import { MessageCircle } from "lucide-react";
 
 /**
  * Galeria de obras.
@@ -52,7 +54,7 @@ export default function Portfolio() {
             Aço em obra. Sem filtros, sem improvisos.
           </h2>
           <p className="mt-4 text-zinc-400 md:text-lg">
-            Uma amostra das entregas recentes — do detalhe do cordão de solda ao portão instalado.
+            Uma amostra das entregas recentes. <span className="text-amber-500">Clique em qualquer obra</span> pra pedir um orçamento semelhante.
           </p>
         </div>
 
@@ -61,7 +63,14 @@ export default function Portfolio() {
             <CarouselContent>
               {items.map((it) => (
                 <CarouselItem key={it.title} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="group relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900">
+                  <a
+                    href={whatsappWithText(
+                      WA_MESSAGES.portfolioItem(it.title, it.caption)
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative block overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900 transition-colors hover:border-amber-500/60"
+                  >
                     <div className="aspect-[4/5] overflow-hidden">
                       <img
                         src={it.src}
@@ -71,11 +80,20 @@ export default function Portfolio() {
                       />
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent" />
+
+                    {/* CTA que aparece no hover */}
+                    <div className="absolute inset-0 flex items-center justify-center bg-zinc-950/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                      <div className="inline-flex items-center gap-2 rounded-full bg-amber-500 px-5 py-2.5 text-sm font-semibold text-zinc-950 shadow-lg">
+                        <MessageCircle className="h-4 w-4" />
+                        Quero um assim
+                      </div>
+                    </div>
+
                     <div className="absolute inset-x-0 bottom-0 p-5">
                       <h3 className="text-lg font-extrabold leading-tight text-zinc-50">{it.title}</h3>
                       <p className="mt-1 text-xs uppercase tracking-wider text-amber-500">{it.caption}</p>
                     </div>
-                  </div>
+                  </a>
                 </CarouselItem>
               ))}
             </CarouselContent>

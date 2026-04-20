@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { whatsappWithText } from "@/lib/site";
+import { WA_MESSAGES, whatsappWithText } from "@/lib/site";
 import { Camera, MapPin, Wrench, Check, MessageCircle } from "lucide-react";
 
 const steps = [
@@ -23,11 +23,7 @@ const steps = [
   },
 ];
 
-const prefilledMsg =
-  "Olá! Vi o site da Serralheria Lukann e quero um orçamento.\n\n" +
-  "📸 Foto do local: (anexo)\n" +
-  "📍 Cidade/bairro: \n" +
-  "🔧 O que preciso: ";
+const prefilledMsg = WA_MESSAGES.quickQuote;
 
 export default function QuickQuote() {
   return (
@@ -47,9 +43,9 @@ export default function QuickQuote() {
             <span className="whitespace-nowrap">nem preencher formulário.</span>
           </h2>
           <p className="mt-4 text-zinc-400 md:text-lg">
-            Manda três coisas simples no WhatsApp. O Almir responde com o
-            orçamento preliminar no mesmo dia — e só agenda a visita técnica se
-            você quiser fechar.
+            Manda três coisas simples no WhatsApp. Nossa equipe técnica retorna
+            com o orçamento preliminar no mesmo dia — e só agenda a visita ao
+            local se você quiser fechar.
           </p>
         </div>
 

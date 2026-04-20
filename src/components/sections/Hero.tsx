@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Flame, MessageCircle, ShieldCheck, Clock, Award } from "lucide-react";
-import { SITE } from "@/lib/site";
+import { WA_MESSAGES, whatsappWithText } from "@/lib/site";
 
-const WHATSAPP = SITE.whatsapp.url;
+const WHATSAPP = whatsappWithText(WA_MESSAGES.heroPrimary);
 
 export default function Hero() {
   return (

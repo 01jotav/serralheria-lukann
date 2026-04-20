@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/Logo";
-import { SITE } from "@/lib/site";
+import { WA_MESSAGES, whatsappWithText } from "@/lib/site";
 import { MessageCircle } from "lucide-react";
 
 export default function Header() {
@@ -31,7 +31,7 @@ export default function Header() {
           size="sm"
           className="bg-amber-500 text-zinc-950 hover:bg-amber-400"
         >
-          <a href={SITE.whatsapp.url} target="_blank" rel="noopener noreferrer">
+          <a href={whatsappWithText(WA_MESSAGES.header)} target="_blank" rel="noopener noreferrer">
             <MessageCircle className="mr-1.5 h-4 w-4" />
             <span className="hidden sm:inline">Orçamento</span>
             <span className="sm:hidden">WhatsApp</span>

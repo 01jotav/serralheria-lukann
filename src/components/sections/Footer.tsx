@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/Logo";
-import { SITE } from "@/lib/site";
+import { SITE, WA_MESSAGES, whatsappWithText } from "@/lib/site";
 import { MapPin, Phone, MessageCircle, Clock, ExternalLink } from "lucide-react";
 
 // Lucide não expõe mais o ícone do Instagram por questão de marca — usamos inline.
@@ -45,7 +45,7 @@ export default function Footer() {
             size="xl"
             className="mt-10 bg-amber-500 text-zinc-950 shadow-[0_0_40px_-10px_rgba(245,158,11,0.7)] hover:bg-amber-400"
           >
-            <a href={SITE.whatsapp.url} target="_blank" rel="noopener noreferrer">
+            <a href={whatsappWithText(WA_MESSAGES.footerFinal)} target="_blank" rel="noopener noreferrer">
               <MessageCircle className="mr-2 h-5 w-5" />
               Pedir meu orçamento agora
             </a>
@@ -97,7 +97,7 @@ export default function Footer() {
                 label="WhatsApp"
                 value={
                   <a
-                    href={SITE.whatsapp.url}
+                    href={whatsappWithText(WA_MESSAGES.header)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-amber-500"
@@ -161,6 +161,28 @@ export default function Footer() {
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
               />
+
+              {/* Pino custom sobreposto — sempre visível, na cor da marca */}
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                <div className="relative flex flex-col items-center">
+                  {/* Ondas pulsando */}
+                  <div className="absolute -bottom-1 h-12 w-12 animate-ping rounded-full bg-amber-500/40" />
+                  <div className="absolute -bottom-1 h-6 w-6 animate-pulse rounded-full bg-amber-500/60" />
+
+                  {/* Card "Estamos aqui" */}
+                  <div className="relative mb-1 rounded-md bg-amber-500 px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider text-zinc-950 shadow-xl">
+                    Estamos aqui
+                    <div className="absolute left-1/2 top-full h-0 w-0 -translate-x-1/2 border-x-4 border-t-[6px] border-x-transparent border-t-amber-500" />
+                  </div>
+
+                  {/* Pino propriamente dito */}
+                  <div className="relative flex h-10 w-10 items-center justify-center rounded-full border-4 border-zinc-950 bg-amber-500 shadow-2xl">
+                    <MapPin className="h-4 w-4 text-zinc-950" strokeWidth={3} />
+                  </div>
+                  {/* Base pontilhada */}
+                  <div className="mt-0.5 h-1.5 w-1.5 rounded-full bg-amber-500/80 shadow" />
+                </div>
+              </div>
             </div>
             <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-3">
               {SITE.areaServed.map((city) => (

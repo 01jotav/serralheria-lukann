@@ -4,6 +4,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
+import { MessageCircle } from "lucide-react";
+import { WA_MESSAGES, whatsappWithText } from "@/lib/site";
 
 const faqs = [
   {
@@ -69,6 +72,24 @@ export default function FAQ() {
               </AccordionItem>
             ))}
           </Accordion>
+        </div>
+
+        {/* CTA para quem ficou com dúvida */}
+        <div className="mt-10 rounded-xl border border-zinc-800 bg-zinc-900/40 p-6 text-center">
+          <p className="text-sm text-zinc-300">
+            Ficou com alguma dúvida que não está aqui?
+          </p>
+          <Button
+            asChild
+            size="lg"
+            variant="outline"
+            className="mt-4 border-amber-500/40 bg-transparent text-amber-500 hover:bg-amber-500 hover:text-zinc-950"
+          >
+            <a href={whatsappWithText(WA_MESSAGES.faq)} target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="mr-2 h-4 w-4" />
+              Perguntar no WhatsApp
+            </a>
+          </Button>
         </div>
 
         {/* Schema.org FAQPage — gera rich result no Google */}
