@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Flame, MessageCircle, MapPin } from "lucide-react";
+import { Flame, MessageCircle, ShieldCheck, Clock, Award } from "lucide-react";
 
 const WHATSAPP = "https://wa.me/5551999999999";
 
@@ -21,51 +21,59 @@ export default function Hero() {
       <div className="container relative z-10 mx-auto flex min-h-[90vh] max-w-6xl flex-col items-center justify-center px-6 py-24 text-center">
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/60 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-zinc-300 backdrop-blur">
           <Flame className="h-3.5 w-3.5 text-amber-500" />
-          Serralheria Lukann — Porto Alegre / RS
+          Serralheria em Porto Alegre · Alvorada · Cachoeirinha
         </div>
 
+        {/* H1 centrado no cliente, não em nós */}
         <h1 className="max-w-5xl text-4xl font-extrabold leading-[1.05] tracking-tight text-zinc-50 md:text-6xl lg:text-7xl">
-          Estruturas metálicas e portões{" "}
+          Eleve o padrão da sua obra com{" "}
           <span className="bg-gradient-to-br from-amber-400 via-amber-500 to-orange-600 bg-clip-text text-transparent">
-            sob medida
+            aço sob medida
           </span>{" "}
-          feitos para durar décadas.
+          que dura décadas.
         </h1>
 
         <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-400 md:text-lg">
-          Projetos com precisão milimétrica, aço tratado e soldas de alta resistência.
-          Atendemos Porto Alegre, Alvorada, Cachoeirinha e toda a Região Metropolitana.
+          Portões, estruturas metálicas, escadas e mezaninos executados com precisão
+          milimétrica, aço certificado e soldas de alta resistência.
+          Orçamento técnico em até 24h.
         </p>
+
+        {/* Stats movidas para antes dos CTAs — prova social seca */}
+        <div className="mt-10 grid w-full max-w-3xl grid-cols-3 gap-4 sm:gap-8">
+          <QuickStat icon={<Award />} value="+15" label="anos de ofício" />
+          <QuickStat icon={<ShieldCheck />} value="500+" label="projetos entregues" />
+          <QuickStat icon={<Clock />} value="24h" label="orçamento pronto" />
+        </div>
 
         <div className="mt-10 flex w-full flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <Button asChild size="xl" className="group w-full bg-amber-500 text-zinc-950 shadow-[0_0_40px_-10px_rgba(245,158,11,0.7)] hover:bg-amber-400 sm:w-auto">
             <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">
               <MessageCircle className="mr-2 h-5 w-5" />
-              Solicitar orçamento no WhatsApp
+              Pedir orçamento no WhatsApp
             </a>
           </Button>
           <Button asChild size="xl" variant="outline" className="w-full border-zinc-800 bg-zinc-900/40 text-zinc-100 hover:bg-zinc-900 sm:w-auto">
-            <a href="#portfolio">Ver projetos executados</a>
+            <a href="#portfolio">Ver obras executadas</a>
           </Button>
         </div>
 
-        <div className="mt-14 grid w-full max-w-3xl grid-cols-2 gap-6 border-t border-zinc-900 pt-8 md:grid-cols-4">
-          <Stat value="+15" label="Anos de ofício" />
-          <Stat value="500+" label="Projetos entregues" />
-          <Stat value="100%" label="Aço certificado" />
-          <Stat value="3" label="Cidades atendidas" icon={<MapPin className="h-3.5 w-3.5" />} />
-        </div>
+        <p className="mt-6 text-xs uppercase tracking-widest text-zinc-500">
+          Resposta rápida · Visita técnica sem compromisso
+        </p>
       </div>
     </section>
   );
 }
 
-function Stat({ value, label, icon }: { value: string; label: string; icon?: React.ReactNode }) {
+function QuickStat({ icon, value, label }: { icon: React.ReactNode; value: string; label: string }) {
   return (
-    <div className="flex flex-col items-center">
-      <div className="text-3xl font-extrabold tracking-tight text-amber-500 md:text-4xl">{value}</div>
-      <div className="mt-1 flex items-center gap-1.5 text-xs uppercase tracking-wider text-zinc-500">
-        {icon}
+    <div className="flex flex-col items-center border-l border-zinc-800 first:border-l-0 sm:border-l">
+      <div className="mb-1 text-amber-500 [&>svg]:h-4 [&>svg]:w-4">{icon}</div>
+      <div className="text-3xl font-extrabold tracking-tight text-zinc-50 md:text-4xl">
+        {value}
+      </div>
+      <div className="mt-1 text-[10px] uppercase tracking-wider text-zinc-500 sm:text-xs">
         {label}
       </div>
     </div>

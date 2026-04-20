@@ -6,29 +6,41 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
+/**
+ * Galeria de obras.
+ *
+ * Quando chegarem fotos reais, basta trocar `src` para o caminho local
+ * (ex: "/obras/portao-pivotante-petropolis-poa-01.jpg").
+ * Ver convenção de nomes em `public/obras/README.md`.
+ */
 const items = [
   {
     src: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=80",
-    title: "Portão pivotante em aço Corten",
-    caption: "Residência de alto padrão — Porto Alegre / RS",
+    alt: "Portão pivotante em aço executado pela Serralheria Lukann",
+    title: "Portão pivotante em aço",
+    caption: "Residência — Porto Alegre / RS",
   },
   {
     src: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1400&q=80",
+    alt: "Mezanino industrial com 12m de vão livre",
     title: "Mezanino industrial com 12m de vão livre",
     caption: "Galpão logístico — Cachoeirinha / RS",
   },
   {
     src: "https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&w=1400&q=80",
+    alt: "Solda TIG em estrutura de aço inox",
     title: "Solda TIG em estrutura de aço inox",
     caption: "Reforço estrutural — Alvorada / RS",
   },
   {
     src: "https://images.unsplash.com/photo-1530469525856-cf37954301f7?auto=format&fit=crop&w=1400&q=80",
+    alt: "Escada metálica com guarda-corpo",
     title: "Escada metálica com guarda-corpo milimétrico",
     caption: "Edifício comercial — Zona Norte POA",
   },
   {
     src: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=1400&q=80",
+    alt: "Cobertura metálica de grande vão",
     title: "Cobertura metálica de grande vão",
     caption: "Indústria metalúrgica — Região Metropolitana",
   },
@@ -59,7 +71,7 @@ export default function Portfolio() {
                     <div className="aspect-[4/5] overflow-hidden">
                       <img
                         src={it.src}
-                        alt={it.title}
+                        alt={it.alt}
                         loading="lazy"
                         className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />

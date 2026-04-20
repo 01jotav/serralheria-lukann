@@ -6,20 +6,44 @@ const services = [
     icon: DoorOpen,
     title: "Portões e Grades Automatizadas",
     description:
-      "Portões basculantes, deslizantes e pivotantes com motorização de linha pesada, reforços estruturais e acabamento anticorrosivo.",
+      "Portões basculantes, deslizantes e pivotantes com motorização pesada, reforços estruturais e acabamento anticorrosivo.",
   },
   {
     icon: Building2,
     title: "Estruturas Metálicas e Mezaninos",
     description:
-      "Projetos calculados para cargas reais: mezaninos industriais, escadas metálicas, coberturas e galpões com aço certificado.",
+      "Projetos calculados para cargas reais: mezaninos industriais, escadas metálicas, coberturas e galpões em aço certificado.",
   },
   {
     icon: Flame,
     title: "Manutenções e Soldas de Alta Resistência",
     description:
-      "Soldas MIG/TIG/eletrodo revestido, reforços estruturais, reparos de emergência e recuperação de peças em aço e ferro.",
+      "Soldas MIG/TIG/eletrodo, reforços estruturais, reparos de emergência e recuperação de peças em aço e ferro.",
   },
+];
+
+// Catálogo completo — cada termo é uma busca que queremos ranquear
+const catalog = [
+  "Portão basculante",
+  "Portão deslizante",
+  "Portão pivotante",
+  "Portão social",
+  "Grade de proteção",
+  "Grade para janela",
+  "Escada metálica",
+  "Escada caracol",
+  "Corrimão de inox",
+  "Mezanino industrial",
+  "Estrutura de galpão",
+  "Cobertura metálica",
+  "Cobertura em policarbonato",
+  "Guarda-corpo",
+  "Pergolado de aço",
+  "Porta de aço",
+  "Reforço estrutural",
+  "Solda MIG / TIG",
+  "Reparo de portão automático",
+  "Automação de portão",
 ];
 
 export default function Services() {
@@ -59,6 +83,30 @@ export default function Services() {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* Catálogo expandido — SEO long-tail */}
+        <div className="mt-20 rounded-2xl border border-zinc-900 bg-zinc-900/30 p-8 md:p-12">
+          <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
+            <div>
+              <h3 className="text-xl font-extrabold text-zinc-50 md:text-2xl">
+                E também executamos:
+              </h3>
+              <p className="mt-1 text-sm text-zinc-400">
+                Não encontrou o que precisa? Chama no WhatsApp que avaliamos.
+              </p>
+            </div>
+          </div>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {catalog.map((item) => (
+              <span
+                key={item}
+                className="inline-flex items-center rounded-md border border-zinc-800 bg-zinc-900/60 px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors hover:border-amber-500/40 hover:text-amber-500"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>
