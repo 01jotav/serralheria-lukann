@@ -15,34 +15,28 @@ import {
  */
 const items = [
   {
-    src: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=80",
-    alt: "Portão pivotante em aço executado pela Serralheria Lukann",
-    title: "Portão pivotante em aço",
-    caption: "Residência — Porto Alegre / RS",
+    src: "/obras/portao-basculante-branco-sarandi-poa-02.jpg",
+    alt: "Portão residencial branco com frisos horizontais de ventilação — instalado pela Serralheria Lukann em Sarandi, Porto Alegre",
+    title: "Portão residencial branco com frisos de ventilação",
+    caption: "Residência — Sarandi / POA",
   },
   {
-    src: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1400&q=80",
-    alt: "Mezanino industrial com 12m de vão livre",
-    title: "Mezanino industrial com 12m de vão livre",
-    caption: "Galpão logístico — Cachoeirinha / RS",
+    src: "/obras/portao-preto-fosco-petropolis-poa-03.jpg",
+    alt: "Portão metálico preto fosco com detalhes superiores vazados — Serralheria Lukann, bairro Petrópolis, Porto Alegre",
+    title: "Portão preto fosco com detalhes vazados",
+    caption: "Residência — Petrópolis / POA",
   },
   {
-    src: "https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&w=1400&q=80",
-    alt: "Solda TIG em estrutura de aço inox",
-    title: "Solda TIG em estrutura de aço inox",
-    caption: "Reforço estrutural — Alvorada / RS",
+    src: "/obras/portao-porta-social-canoas-04.jpg",
+    alt: "Portão duplo de garagem com porta social integrada em tela metálica expansiva — Serralheria Lukann em Canoas",
+    title: "Portão duplo com porta social integrada",
+    caption: "Residência — Canoas / RS",
   },
   {
-    src: "https://images.unsplash.com/photo-1530469525856-cf37954301f7?auto=format&fit=crop&w=1400&q=80",
-    alt: "Escada metálica com guarda-corpo",
-    title: "Escada metálica com guarda-corpo milimétrico",
-    caption: "Edifício comercial — Zona Norte POA",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=1400&q=80",
-    alt: "Cobertura metálica de grande vão",
-    title: "Cobertura metálica de grande vão",
-    caption: "Indústria metalúrgica — Região Metropolitana",
+    src: "/obras/portao-horizontal-alvorada-01.jpg",
+    alt: "Fechamento metálico horizontal em barras de aço com portão pedestre lateral — Serralheria Lukann, Alvorada",
+    title: "Fechamento horizontal em barras de aço",
+    caption: "Residência — Alvorada / RS",
   },
 ];
 

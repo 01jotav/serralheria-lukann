@@ -1,29 +1,51 @@
 import { Button } from "@/components/ui/button";
-import { MapPin, Phone, Mail, MessageCircle, Flame } from "lucide-react";
+import { Logo } from "@/components/Logo";
+import { SITE } from "@/lib/site";
+import { MapPin, Phone, MessageCircle, Clock, ExternalLink } from "lucide-react";
 
-const WHATSAPP = "https://wa.me/5551999999999";
+// Lucide não expõe mais o ícone do Instagram por questão de marca — usamos inline.
+function Instagram(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    </svg>
+  );
+}
 
 export default function Footer() {
   return (
-    <footer className="relative w-full overflow-hidden border-t border-zinc-900 bg-zinc-950">
+    <footer
+      id="contato"
+      className="relative w-full overflow-hidden border-t border-zinc-900 bg-zinc-950"
+    >
       {/* Final CTA */}
       <div className="relative border-b border-zinc-900">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-amber-500/10 via-transparent to-transparent" />
+        <div className="pointer-events-none absolute -top-40 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-brand-navy/30 blur-[140px]" />
         <div className="container relative mx-auto max-w-5xl px-6 py-20 text-center md:py-28">
-          <Flame className="mx-auto mb-5 h-8 w-8 text-amber-500" />
           <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-zinc-50 md:text-5xl">
             Seu projeto merece aço executado com precisão.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-zinc-400 md:text-lg">
-            Envie as medidas, fotos ou a planta. O Almir retorna com um orçamento
-            técnico, cronograma e proposta dentro de 24 horas úteis.
+            Envie as medidas, fotos ou a planta. Retornamos com um orçamento
+            técnico, cronograma e proposta em até 24h úteis.
           </p>
           <Button
             asChild
             size="xl"
             className="mt-10 bg-amber-500 text-zinc-950 shadow-[0_0_40px_-10px_rgba(245,158,11,0.7)] hover:bg-amber-400"
           >
-            <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">
+            <a href={SITE.whatsapp.url} target="_blank" rel="noopener noreferrer">
               <MessageCircle className="mr-2 h-5 w-5" />
               Pedir meu orçamento agora
             </a>
@@ -31,73 +53,132 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Info grid */}
-      <div className="container mx-auto max-w-6xl px-6 py-16">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
-          <div>
-            <div className="flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-md bg-amber-500 text-zinc-950">
-                <Flame className="h-5 w-5" />
-              </div>
-              <div className="text-xl font-extrabold tracking-tight text-zinc-50">
-                Serralheria Lukann
+      {/* Contato + mapa */}
+      <div className="container mx-auto max-w-6xl px-6 py-20">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
+          {/* Bloco de contato e marca */}
+          <div className="lg:col-span-2">
+            <div className="flex items-center gap-3">
+              <Logo width={56} className="h-14 w-14 object-cover" />
+              <div>
+                <div className="text-xl font-extrabold tracking-tight text-zinc-50">
+                  {SITE.name}
+                </div>
+                <div className="text-xs uppercase tracking-[0.2em] text-amber-500">
+                  {SITE.tagline}
+                </div>
               </div>
             </div>
-            <p className="mt-4 text-sm leading-relaxed text-zinc-400">
-              Estruturas metálicas pesadas, portões sob medida e soldas de alta resistência.
-              Ofício técnico, aço certificado e acabamento premium.
+            <p className="mt-5 text-sm leading-relaxed text-zinc-400">
+              Estruturas metálicas pesadas, portões sob medida e soldas de alta
+              resistência. Ofício técnico, aço certificado e acabamento premium.
             </p>
+
+            <div className="mt-8 space-y-4">
+              <ContactLine
+                icon={<MapPin />}
+                label="Endereço"
+                value={
+                  <a
+                    href={SITE.address.mapsLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 hover:text-amber-500"
+                  >
+                    {SITE.address.street}
+                    <br />
+                    {SITE.address.neighborhood} — {SITE.address.city} / {SITE.address.state}
+                    <ExternalLink className="ml-1 inline h-3 w-3 shrink-0" />
+                  </a>
+                }
+              />
+              <ContactLine
+                icon={<Phone />}
+                label="WhatsApp"
+                value={
+                  <a
+                    href={SITE.whatsapp.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-amber-500"
+                  >
+                    {SITE.whatsapp.display}
+                  </a>
+                }
+              />
+              <ContactLine
+                icon={<Instagram />}
+                label="Instagram"
+                value={
+                  <a
+                    href={SITE.instagram.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-amber-500"
+                  >
+                    {SITE.instagram.handle}
+                  </a>
+                }
+              />
+              <ContactLine
+                icon={<Clock />}
+                label="Horário"
+                value={
+                  <>
+                    {SITE.hours.weekdays}
+                    <br />
+                    {SITE.hours.saturday}
+                  </>
+                }
+              />
+            </div>
           </div>
 
-          <div>
-            <h4 className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-500">
-              Área de cobertura
-            </h4>
-            <ul className="mt-4 space-y-2 text-sm text-zinc-300">
-              <li className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-zinc-500" /> Porto Alegre — RS
-              </li>
-              <li className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-zinc-500" /> Alvorada — RS
-              </li>
-              <li className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-zinc-500" /> Cachoeirinha — RS
-              </li>
-              <li className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-zinc-500" /> Região Metropolitana
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-500">
-              Contato direto
-            </h4>
-            <ul className="mt-4 space-y-3 text-sm text-zinc-300">
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-zinc-500" /> (51) 99999-9999
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-zinc-500" /> contato@serralherialukann.com.br
-              </li>
-              <li>
-                <a
-                  href={WHATSAPP}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-amber-500 hover:text-amber-400"
+          {/* Google Maps embed */}
+          <div className="lg:col-span-3">
+            <div className="mb-3 flex items-center justify-between">
+              <h4 className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-500">
+                Onde estamos
+              </h4>
+              <a
+                href={SITE.address.mapsLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-xs font-semibold text-zinc-400 hover:text-amber-500"
+              >
+                Abrir no Google Maps
+                <ExternalLink className="h-3 w-3" />
+              </a>
+            </div>
+            <div className="relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900">
+              <iframe
+                title="Localização da Serralheria Lukann no Google Maps"
+                src={SITE.address.mapsEmbed}
+                width="100%"
+                height="360"
+                style={{ border: 0, filter: "invert(0.9) hue-rotate(180deg) saturate(0.6)" }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
+            <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-3">
+              {SITE.areaServed.map((city) => (
+                <div
+                  key={city}
+                  className="flex items-center gap-2 rounded-md border border-zinc-800 bg-zinc-900/40 px-3 py-2 text-xs text-zinc-300"
                 >
-                  <MessageCircle className="h-4 w-4" />
-                  Falar no WhatsApp
-                </a>
-              </li>
-            </ul>
+                  <MapPin className="h-3.5 w-3.5 text-amber-500" />
+                  {city}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-zinc-900 pt-8 text-xs text-zinc-500 md:flex-row">
           <div>
-            © {new Date().getFullYear()} Serralheria Lukann. Todos os direitos reservados.
+            © {new Date().getFullYear()} {SITE.name}. Todos os direitos reservados.
           </div>
           <div className="uppercase tracking-widest">
             Aço · Precisão · Durabilidade
@@ -105,5 +186,29 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+  );
+}
+
+function ContactLine({
+  icon,
+  label,
+  value,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  value: React.ReactNode;
+}) {
+  return (
+    <div className="flex gap-3">
+      <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-zinc-800 bg-zinc-900 text-amber-500">
+        <div className="[&>svg]:h-4 [&>svg]:w-4">{icon}</div>
+      </div>
+      <div className="text-sm">
+        <div className="text-[10px] uppercase tracking-[0.2em] text-zinc-500">
+          {label}
+        </div>
+        <div className="text-zinc-300">{value}</div>
+      </div>
+    </div>
   );
 }

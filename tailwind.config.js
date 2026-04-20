@@ -41,6 +41,12 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Cores de marca (extraídas da logo)
+        brand: {
+          navy: "#1e3a6f",
+          "navy-dark": "#152554",
+          "navy-light": "#2e5491",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

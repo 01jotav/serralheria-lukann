@@ -1,7 +1,8 @@
 import { ShieldCheck, Microscope, Ruler } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SITE } from "@/lib/site";
 
-const WHATSAPP = "https://wa.me/5551999999999";
+const WHATSAPP = SITE.whatsapp.url;
 
 export default function Authority() {
   return (

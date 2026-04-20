@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Flame, MessageCircle, ShieldCheck, Clock, Award } from "lucide-react";
+import { SITE } from "@/lib/site";
 
-const WHATSAPP = "https://wa.me/5551999999999";
+const WHATSAPP = SITE.whatsapp.url;
 
 export default function Hero() {
   return (
@@ -17,6 +18,7 @@ export default function Hero() {
       />
       <div className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-amber-500/20 blur-[140px]" />
       <div className="pointer-events-none absolute bottom-0 right-0 h-96 w-96 rounded-full bg-orange-600/10 blur-[120px]" />
+      <div className="pointer-events-none absolute bottom-20 left-0 h-96 w-96 rounded-full bg-brand-navy/30 blur-[140px]" />
 
       <div className="container relative z-10 mx-auto flex min-h-[90vh] max-w-6xl flex-col items-center justify-center px-6 py-24 text-center">
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/60 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-zinc-300 backdrop-blur">
