@@ -54,7 +54,7 @@ export default function Services() {
           <div className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.3em] text-amber-500">
             O que fazemos
           </div>
-          <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-zinc-50 md:text-5xl">
+          <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-zinc-50 sm:text-3xl md:text-5xl">
             Três frentes, um padrão: aço pesado executado com precisão.
           </h2>
           <p className="mt-4 text-zinc-400 md:text-lg">

@@ -33,7 +33,7 @@ export default function Footer() {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-amber-500/10 via-transparent to-transparent" />
         <div className="pointer-events-none absolute -top-40 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-brand-navy/30 blur-[140px]" />
         <div className="container relative mx-auto max-w-5xl px-6 py-20 text-center md:py-28">
-          <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-zinc-50 md:text-5xl">
+          <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-zinc-50 sm:text-3xl md:text-5xl">
             Seu projeto merece aço executado com precisão.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-zinc-400 md:text-lg">
@@ -150,40 +150,54 @@ export default function Footer() {
                 <ExternalLink className="h-3 w-3" />
               </a>
             </div>
-            <div className="relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900">
-              <iframe
-                title="Localização da Serralheria Lukann no Google Maps"
-                src={SITE.address.mapsEmbed}
-                width="100%"
-                height="360"
-                style={{ border: 0, filter: "invert(0.9) hue-rotate(180deg) saturate(0.6)" }}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
+            {/*
+              Mapa como preview "estático": o iframe fica visível mas sem
+              interação (pointer-events: none na camada superior), evitando
+              que o pino fique dessincronizado quando o usuário arrasta.
+              Para navegar, abre direto no Google Maps (melhor UX em mobile
+              porque usa o GPS do aparelho).
+            */}
+            <a
+              href={SITE.address.mapsLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative block overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-amber-500"
+              aria-label="Abrir localização no Google Maps"
+            >
+              <div className="relative h-[280px] w-full sm:h-[360px]">
+                <iframe
+                  title="Localização da Serralheria Lukann"
+                  src={SITE.address.mapsEmbed}
+                  className="absolute inset-0 h-full w-full"
+                  style={{ border: 0, filter: "invert(0.9) hue-rotate(180deg) saturate(0.6)" }}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+                {/* Camada de captura — bloqueia interação com o iframe */}
+                <div className="absolute inset-0 bg-transparent" />
+              </div>
 
-              {/* Pino custom sobreposto — sempre visível, na cor da marca */}
-              <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                <div className="relative flex flex-col items-center">
-                  {/* Ondas pulsando */}
-                  <div className="absolute -bottom-1 h-12 w-12 animate-ping rounded-full bg-amber-500/40" />
-                  <div className="absolute -bottom-1 h-6 w-6 animate-pulse rounded-full bg-amber-500/60" />
-
-                  {/* Card "Estamos aqui" */}
-                  <div className="relative mb-1 rounded-md bg-amber-500 px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider text-zinc-950 shadow-xl">
-                    Estamos aqui
-                    <div className="absolute left-1/2 top-full h-0 w-0 -translate-x-1/2 border-x-4 border-t-[6px] border-x-transparent border-t-amber-500" />
-                  </div>
-
-                  {/* Pino propriamente dito */}
-                  <div className="relative flex h-10 w-10 items-center justify-center rounded-full border-4 border-zinc-950 bg-amber-500 shadow-2xl">
-                    <MapPin className="h-4 w-4 text-zinc-950" strokeWidth={3} />
-                  </div>
-                  {/* Base pontilhada */}
-                  <div className="mt-0.5 h-1.5 w-1.5 rounded-full bg-amber-500/80 shadow" />
+              {/* Overlay central com CTA */}
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-zinc-950/40 opacity-0 transition-opacity group-hover:opacity-100">
+                <div className="inline-flex items-center gap-2 rounded-full bg-amber-500 px-5 py-2.5 text-sm font-semibold text-zinc-950 shadow-xl">
+                  <ExternalLink className="h-4 w-4" />
+                  Abrir no Google Maps
                 </div>
               </div>
-            </div>
+
+              {/* Badge de endereço no canto — honesto, sem fingir pino */}
+              <div className="pointer-events-none absolute bottom-3 left-3 right-3 rounded-md border border-zinc-800 bg-zinc-950/90 px-3 py-2 text-xs text-zinc-100 backdrop-blur sm:right-auto sm:max-w-sm">
+                <div className="flex items-center gap-2">
+                  <MapPin className="h-3.5 w-3.5 shrink-0 text-amber-500" />
+                  <span className="font-semibold">
+                    {SITE.address.street} — {SITE.address.neighborhood}
+                  </span>
+                </div>
+                <div className="mt-0.5 pl-[22px] text-[11px] text-zinc-400">
+                  Toque para abrir no app de mapas
+                </div>
+              </div>
+            </a>
             <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-3">
               {SITE.areaServed.map((city) => (
                 <div

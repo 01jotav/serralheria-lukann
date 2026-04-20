@@ -44,12 +44,19 @@
   }
   html {
     color-scheme: dark;
+    /* Evita scroll horizontal acidental em telas pequenas */
+    overflow-x: hidden;
   }
   body {
     @apply bg-zinc-950 text-foreground font-sans antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-extrabold tracking-tight text-zinc-50;
+  }
+  /* Melhora tap target em links/botões no mobile */
+  @media (hover: none) {
+    a, button { -webkit-tap-highlight-color: transparent; }
   }
 }

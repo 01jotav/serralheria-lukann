@@ -40,7 +40,7 @@ export default function Differentials() {
             <div className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.3em] text-amber-500">
               Por que Lukann
             </div>
-            <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-zinc-50 md:text-5xl">
+            <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-zinc-50 sm:text-3xl md:text-5xl">
               Quatro pilares que sustentam cada projeto.
             </h2>
             <p className="mt-6 text-zinc-400 md:text-lg">

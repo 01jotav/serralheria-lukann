@@ -14,7 +14,7 @@ export default function Authority() {
             <div className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.3em] text-amber-500">
               Execução técnica
             </div>
-            <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-zinc-50 md:text-5xl">
+            <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-zinc-50 sm:text-3xl md:text-5xl">
               Cada cordão de solda na sua obra passa por inspeção técnica.
             </h2>
             <p className="mt-6 text-base leading-relaxed text-zinc-400 md:text-lg">

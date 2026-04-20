@@ -50,7 +50,7 @@ export default function Portfolio() {
           <div className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.3em] text-amber-500">
             Projetos executados
           </div>
-          <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-zinc-50 md:text-5xl">
+          <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-zinc-50 sm:text-3xl md:text-5xl">
             Aço em obra. Sem filtros, sem improvisos.
           </h2>
           <p className="mt-4 text-zinc-400 md:text-lg">
@@ -58,7 +58,7 @@ export default function Portfolio() {
           </p>
         </div>
 
-        <div className="mt-16 px-4 md:px-16">
+        <div className="relative mt-16 px-0 sm:px-4 md:px-16">
           <Carousel opts={{ align: "start", loop: true }} className="w-full">
             <CarouselContent>
               {items.map((it) => (
@@ -81,12 +81,18 @@ export default function Portfolio() {
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent" />
 
-                    {/* CTA que aparece no hover */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-zinc-950/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    {/* CTA: aparece no hover no desktop, fica discreto em mobile */}
+                    <div className="absolute inset-0 hidden items-center justify-center bg-zinc-950/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:flex">
                       <div className="inline-flex items-center gap-2 rounded-full bg-amber-500 px-5 py-2.5 text-sm font-semibold text-zinc-950 shadow-lg">
                         <MessageCircle className="h-4 w-4" />
                         Quero um assim
                       </div>
+                    </div>
+
+                    {/* Mobile: chip discreto sempre visível no canto */}
+                    <div className="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-amber-500 px-2.5 py-1 text-[11px] font-semibold text-zinc-950 shadow-lg md:hidden">
+                      <MessageCircle className="h-3 w-3" />
+                      Quero um assim
                     </div>
 
                     <div className="absolute inset-x-0 bottom-0 p-5">
@@ -97,8 +103,8 @@ export default function Portfolio() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="border-zinc-800 bg-zinc-900/70 text-zinc-100 hover:bg-amber-500 hover:text-zinc-950" />
-            <CarouselNext className="border-zinc-800 bg-zinc-900/70 text-zinc-100 hover:bg-amber-500 hover:text-zinc-950" />
+            <CarouselPrevious className="left-2 border-zinc-800 bg-zinc-900/90 text-zinc-100 hover:bg-amber-500 hover:text-zinc-950 md:-left-12" />
+            <CarouselNext className="right-2 border-zinc-800 bg-zinc-900/90 text-zinc-100 hover:bg-amber-500 hover:text-zinc-950 md:-right-12" />
           </Carousel>
         </div>
       </div>

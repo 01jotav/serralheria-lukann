@@ -38,9 +38,8 @@ export default function QuickQuote() {
           <div className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.3em] text-amber-500">
             Orçamento em 3 mensagens
           </div>
-          <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-zinc-50 md:text-5xl">
-            Você não precisa medir, visitar{" "}
-            <span className="whitespace-nowrap">nem preencher formulário.</span>
+          <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-zinc-50 sm:text-3xl md:text-5xl">
+            Você não precisa medir, visitar nem preencher formulário.
           </h2>
           <p className="mt-4 text-zinc-400 md:text-lg">
             Manda três coisas simples no WhatsApp. Nossa equipe técnica retorna
@@ -100,7 +99,7 @@ export default function QuickQuote() {
 
           {/* Preview da conversa */}
           <div className="relative">
-            <div className="absolute -inset-6 rounded-3xl bg-gradient-to-br from-amber-500/10 via-transparent to-brand-navy/20 blur-2xl" />
+            <div className="pointer-events-none absolute -inset-2 rounded-3xl bg-gradient-to-br from-amber-500/10 via-transparent to-brand-navy/20 blur-2xl sm:-inset-6" />
             <div className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/80 shadow-2xl">
               {/* header fake do chat */}
               <div className="flex items-center gap-3 border-b border-zinc-800 bg-zinc-900 px-4 py-3">

@@ -47,7 +47,7 @@ export default function FAQ() {
           <div className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.3em] text-amber-500">
             Perguntas frequentes
           </div>
-          <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-zinc-50 md:text-5xl">
+          <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-zinc-50 sm:text-3xl md:text-5xl">
             Tirando as dúvidas antes do WhatsApp.
           </h2>
           <p className="mt-4 text-zinc-400 md:text-lg">
