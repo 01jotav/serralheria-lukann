@@ -2,6 +2,7 @@ import Header from "@/components/sections/Header";
 import Hero from "@/components/sections/Hero";
 import Authority from "@/components/sections/Authority";
 import Services from "@/components/sections/Services";
+import QuickQuote from "@/components/sections/QuickQuote";
 import Differentials from "@/components/sections/Differentials";
 import Portfolio from "@/components/sections/Portfolio";
 import FAQ from "@/components/sections/FAQ";
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <Hero />
       <Services />
+      <QuickQuote />
       <Portfolio />
       <Differentials />
       <Authority />

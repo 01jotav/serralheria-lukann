@@ -12,6 +12,7 @@ export const SITE = {
     display: "(51) 99828-2939",
     // formato wa.me: +55 + DDD + 9 + número (total 13 dígitos)
     url: "https://wa.me/5551998282939",
+    number: "5551998282939",
   },
   instagram: {
     handle: "@serralherialukann",
@@ -42,3 +43,11 @@ export const SITE = {
     saturday: "Sáb · 08h às 12h",
   },
 } as const;
+
+/**
+ * Gera URL do WhatsApp com mensagem pré-preenchida.
+ * Ex: whatsappWithText("Olá, quero um orçamento")
+ */
+export function whatsappWithText(text: string) {
+  return `https://wa.me/${SITE.whatsapp.number}?text=${encodeURIComponent(text)}`;
+}
